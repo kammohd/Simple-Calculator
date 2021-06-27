@@ -1,5 +1,5 @@
 public class CTLocationController {
-    //First Method @uthor---Mohammad Kamran - Return 100 Location recs
+    //First Method @uthor---Mohammad Kamran - Return 100 Location records
 public static List<Location__c> getRecentStatusChanges(){
     List<Location__c> LocationList = [SELECT Address__c, Id, Name, 
                                       Pincode__c, Red_Score__c, Status__c,
