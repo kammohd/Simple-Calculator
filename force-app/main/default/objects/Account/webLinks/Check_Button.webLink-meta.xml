@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_Button</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <linkType>javascript</linkType>
+    <masterLabel>Check Button</masterLabel>
+    <openType>onClickJavaScript</openType>
+    <protected>false</protected>
+    <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+if(&quot;{!CONTAINS( &quot;!Account.Name&quot; ,&apos;United&apos;)}&quot;)
+{
+
+alert(&quot;does not contain&quot;);
+
+}
+else{
+alert(&quot;Contains&quot;);
+}</url>
+</WebLink>

@@ -1,0 +1,28 @@
+<template>
+   
+    <lightning-card title="Casio Calculator" icon-name="utility:connected_apps">
+     
+    
+    
+    <div class="slds-m-horizontal_xx-large">
+
+        <div class="slds-box" style="width:197px">
+            <lightning-formatted-number value={CalScreenVal}></lightning-formatted-number>
+            </div>
+            
+        <div class="slds-m-top_small"><p><lightning-button variant="destructive" label="RESET" name="Reset" onclick={handleOp}></lightning-button></p></div>
+
+        <div class="slds-m-top_small"><p><lightning-button variant="brand" label="1" name="Num1" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="brand" label="2" name="Num2" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="brand" label="3" name="Num3" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="destructive" label="÷" name="Divide" onclick={handleOp} class="slds-m-left_x-small"></lightning-button></p></div>
+        <div class="slds-m-top_small"><p><lightning-button variant="brand" label="4" name="Num4" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="brand" label="5" name="Num5" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="brand" label="6" name="Num6" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="destructive" label="x" name="Multiply" onclick={handleOp} class="slds-m-left_x-small"></lightning-button></p></div>
+        <div class="slds-m-top_small"><p><lightning-button variant="brand" label="7" name="Num7" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="brand" label="8" name="Num8" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="brand" label="9" name="Num9" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="destructive" label="-" name="Subtract" onclick={handleOp} class="slds-m-left_x-small"></lightning-button></p></div>
+        <div class="slds-m-top_small"><p><lightning-button variant="Neutral" label="." name="Dot" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="brand" label="0" name="Num0" onclick={handleClick} class="slds-m-left_x-small"></lightning-button><lightning-button variant="brand" label="=" name="equalsign" onclick={handleResult} class="slds-m-left_x-small"></lightning-button><lightning-button variant="destructive" label="+" name="Addition" onclick={handleOp} class="slds-m-left_x-small"></lightning-button></p></div>
+       
+
+        
+
+    </div>
+    
+
+</lightning-card>
+
+</template>
