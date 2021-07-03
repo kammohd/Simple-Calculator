@@ -13,5 +13,10 @@
         compEvent.fire();
     }
 
+    },
+    scriptsLoaded: function(component, event, helper){
+
+        const divClass = component.getElement(".board-block");
+        fitText(divClass);
     }
 })

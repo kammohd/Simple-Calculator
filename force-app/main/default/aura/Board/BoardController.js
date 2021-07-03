@@ -25,6 +25,7 @@
         // get win word
         const winWord = helper.getWinWord(words);
         component.set("v.winWord", winWord);
+        helper.ResetBoard(component);
         
     },
 
@@ -35,12 +36,15 @@
         if(value === component.get("v.winWord")){
             component.set("v.result", "You Win");
             console.log("You Win");
-            //user have won
+            helper.DisabledBoard(component);
+            helper.fireResultEvent("win");            
         } else if (CountClick === 3){
 
             //user have lost
             component.set("v.result", "You lose");
             console.log("You Lose");
+            helper.DisabledBoard(component); 
+            helper.fireResultEvent("lose"); 
 
         }
         //Set the count
@@ -50,5 +54,11 @@
 
     doRender: function (component, event, helper) {
         console.log("Render completed");
+    },
+    reshuffleBoard: function (component, event, helper) {
+        const words = component.get("v.words");
+        const randomizedWords = helper.randomizeArray(words);
+        component.set("v.words", randomizedWords);
+        helper.ResetBoard(component);
     }
 });

@@ -2,6 +2,9 @@
 <aura:attribute name="label" type="string"/>
 <aura:attribute name="open" type="boolean" default ="false"/>
 <aura:registerEvent  name="CusEvent" type="c:BlockClickEvent"/>
+<ltng:require
+        scripts="{!$Resource.FitText}"
+        afterScriptsLoaded="{!c.scriptsLoaded}"/>
 <!--Block Tile container-->
 <div class="board-block slds-align_absolute-center slds-var-m-around_medium slds-var-p-around_medium" onclick="{!c.onclickhandler}">
     <aura:if isTrue="{!v.open}">
