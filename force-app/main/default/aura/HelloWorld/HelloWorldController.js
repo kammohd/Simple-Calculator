@@ -27,12 +27,16 @@
 
     },
     onResultHandler: function(component, event, helper) {
-        const result = event.getParam("result");
-        if(result === "win"){
+        const result = event.getParam("result").toUpperCase();;
+        if(result === "WIN"){
             component.set("v.reshuffleDisable", true);
+            helper.showToast("You Won", "Congratulations You Won the Game", "success");
+           
         } else{
             component.set("v.reshuffleDisable", false);
-
+            helper.showToast("You Lose", "You Lost the Game, Reshuffle the board to keep playing", "error");
         }
+            
+            helper.addResultRecord(component, result);
     }
 });

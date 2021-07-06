@@ -33,6 +33,8 @@
         // get label value from event variable
         const value = event.getParam("value");
         let CountClick = component.get("v.clickCount") + 1;
+        //Set the count
+        component.set("v.clickCount", CountClick);
         if(value === component.get("v.winWord")){
             component.set("v.result", "You Win");
             console.log("You Win");
@@ -47,8 +49,7 @@
             helper.fireResultEvent("lose"); 
 
         }
-        //Set the count
-        component.set("v.clickCount", CountClick);
+        
 
     },
 
