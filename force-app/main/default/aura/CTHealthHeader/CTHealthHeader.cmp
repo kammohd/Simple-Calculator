@@ -1,4 +1,12 @@
-<aura:component implements="force:appHostable">
+<aura:component implements="force:appHostable" controller="CTHealthHeaderController">
+<aura:attribute name="DynamicHeader" type="string"/>
+<aura:attribute name="scope" type="string"/>
+<aura:attribute name="Count" type="Object"/>
+
+
+
+<aura:handler name="init" value = "{!this}" action="{!c.doinit}"/>
+<aura:method name="FetchResult" action="{!c.doinit}"/>
 <lightning:layout multipleRows="true">
     <lightning:layoutItem size="12">
     <div class="slds-page-header slds-page-header_record-home">
@@ -16,7 +24,7 @@
         <div class="slds-page-header__name-title">
         <h1>
         <span>Contact Tracing</span>
-        <span class="slds-page-header__title slds-truncate" title="Person View">Person View</span>
+        <span class="slds-page-header__title slds-truncate" title="{!v.DynamicHeader}">{!v.DynamicHeader}</span>
         </h1>
         </div>
         </div>
@@ -29,7 +37,7 @@
         
         <ul class="slds-button-group-list">
         <li>
-        <button class="slds-button slds-button_neutral">Add New</button>
+        <button class="slds-button slds-button_neutral" onclick= "{!c.AddNewHandler}">Add New</button>
         </li>
         </ul>
         </div>
@@ -46,19 +54,19 @@
             <ul class="margins slds-page-header__detail-row">
             <li class="slds-page-header__detail-block">
             <div class="header-item green" title="Green">Green</div>
-            <div class="header-item green" title="Dummy Value">Dummy Value Green</div>
+            <div class="header-item green" title="{!v.Count.Green}">{!v.Count.Green}</div>
             </li>
             <li class="slds-page-header__detail-block">
                 <div class="header-item yellow" title="Yellow">Yellow</div>
-                <div class="header-item yellow" title="Dummy Value">Dummy Value Yellow</div>
+                <div class="header-item yellow" title="{!v.Count.Yellow}">{!v.Count.Yellow}</div>
                 </li>
                 <li class="slds-page-header__detail-block">
                     <div class="header-item orange" title="Orange">Orange</div>
-                    <div class="header-item orange" title="Dummy Value">Dummy Value Orange</div>
+                    <div class="header-item orange" title="{!v.Count.Orange}">{!v.Count.Orange}</div>
                     </li>
                     <li class="slds-page-header__detail-block">
                         <div class="header-item red" title="Red">Red</div>
-                        <div class="header-item red" title="Dummy Value">Dummy Value Red</div>
+                        <div class="header-item red" title="{!v.Count.Red}">{!v.Count.Red}</div>
                         </li>
             </ul>
             </div>

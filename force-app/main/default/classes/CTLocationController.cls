@@ -55,4 +55,27 @@ StatusCount.put(String.valueOf(Locations.get('Status')), integer.valueOf(Locatio
 return StatusCount;
 
 }
+public static map<string,integer> GetLocationCount(){
+
+    List<AggregateResult> LocationCount = [ Select Count(id) TotalNumber, status__c 
+                                            FROM location__c 
+                                            GROUP BY status__c];
+
+          If(LocationCount.size()>0 && LocationCount != Null){
+             Map<String,integer> LocationCountMap = New Map<String,integer>();
+             for(AggregateResult Loc : LocationCount){
+           
+             LocationCountMap.put(String.valueOf(Loc.get('status__c')), Integer.valueOf(Loc.get('TotalNumber')));
+            
+          }
+         
+          return LocationCountMap;
+ 
+        
+         }
+ 
+                                               
+      return Null;
+        }
+
 }

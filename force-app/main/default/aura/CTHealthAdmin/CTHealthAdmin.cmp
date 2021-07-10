@@ -1,26 +1,31 @@
 <aura:component implements="force:appHostable">
-    <div class ="BaseCard">
+
+<aura:attribute name="HeaderName" type="string" default ="Person View"/>
+<aura:attribute name="scope" type="string" default="person_view"/>
+
+<div class ="BaseCard">
     <lightning:layout multipleRows="true">
     <lightning:layoutItem size="12">
-        <c:CTHealthHeader/>
-
-        
+        <c:CTHealthHeader DynamicHeader="{!v.HeaderName}" scope="{!v.scope}" aura:id="health-header"/>
     </lightning:layoutItem>
     
     <lightning:layoutItem size="12">
        
-    <lightning:tabset variant="vertical">
+    <lightning:tabset variant="vertical" onselect ="{!c.handleActive}">
         <lightning:tab label="Person View" id ="person_view">
-            Person View
+            <c:CTRecentChanges scope="{!v.scope}"/>
         </lightning:tab>
         <lightning:tab label="Location View" id = "location_view">
-            Location View
+            <c:CTRecentChanges scope="{!v.scope}"/>
         </lightning:tab>
       
     </lightning:tabset>
 
     </lightning:layoutItem>
-
+    <lightning:layoutItem>
+       
+    </lightning:layoutItem>
     </lightning:layout>
+    
 </div>
 </aura:component>

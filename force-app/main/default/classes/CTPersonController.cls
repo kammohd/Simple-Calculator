@@ -78,4 +78,26 @@ public static Map<String, Integer> getHealthStatusCount(){
    return HealthStatCount;
    
 }
+public static map<string,integer> GetPersonCount(){
+
+   List<AggregateResult> PeopleCount = [Select Count(id) NumberofPeople, health_status__c 
+                                        FROM person__c 
+                                        GROUP BY health_status__c];
+         If(PeopleCount.size()>0 && PeopleCount != Null){
+            Map<String,integer> PeopleCountMap = New Map<String,integer>();
+            for(AggregateResult Ppl : PeopleCount){
+          
+            PeopleCountMap.put(String.valueOf(Ppl.get('health_status__c')), Integer.valueOf(Ppl.get('NumberofPeople')));
+           
+         }
+        
+         return PeopleCountMap;
+
+       
+        }
+
+                                              
+     return Null;
+
+}
                                 }
